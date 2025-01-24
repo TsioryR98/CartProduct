@@ -1,0 +1,104 @@
+https://dummyjson.com/products/category-list
+[
+  "beauty",
+  "fragrances",
+  "furniture",
+  "groceries",
+  "home-decoration",
+  "kitchen-accessories",
+  "laptops",
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "mobile-accessories",
+  "motorcycle",
+  "skin-care",
+  "smartphones",
+  "sports-accessories",
+  "sunglasses",
+  "tablets",
+  "tops",
+  "vehicle",
+  "womens-bags",
+  "womens-dresses",
+  "womens-jewellery",
+  "womens-shoes",
+  "womens-watches"
+]
+
+https://dummyjson.com/products/category/tablets?limit=4&skip=0 max 3 
+
+https://dummyjson.com/products/category/tablets
+
+
+src/
+── api/
+  ├── axiosInstance.js        
+  └── productAPI.js            
+── components/
+   ├── Cart/
+   │   ├── Cart.jsx             
+   │   ├── CartItem.jsx        
+   │   └── Cart.css             
+   ├── Product/
+   │   ├── ProductList.jsx      
+   │   ├── ProductItem.jsx      
+   │   ├── ProductModal.jsx     
+   │   └── Product.css       
+   ├── Header/
+   │   ├── Header.jsx           
+   │   └── Header.css           
+   └── UI/
+       ├── Modal.jsx            
+      └── Button.jsx           
+── context/
+   ├── SelectedProductContext.js 
+── store/
+   └── cartStore.js            
+── styles/
+   └── globals.css              
+── utils/
+   ├── calculateTotal.js        
+   └── formatPrice.js           
+── App.jsx                      
+── index.js                    
+
+
+[
+ "womens-bags",
+  "womens-dresses",
+  "womens-jewellery",
+  "womens-shoes",
+  "womens-watches",
+   "tops"
+]
+
+[
+     "mobile-accessories",
+      "smartphones",
+      "tablets",
+      "laptops",
+
+]
+
+[
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+   "sports-accessories",
+
+]
+
+[
+   "furniture",
+  "home-decoration",
+  "kitchen-accessories",
+]
+
+
+[
+     "skin-care",
+      "beauty",
+      "fragrances",
+]
+
