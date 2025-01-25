@@ -78,7 +78,7 @@ const fecthMenData = async () => {
 
 //Category womendress products combined with fetch
 
-const fecthWomenDressData = async () => {
+const fecthWomenData = async () => {
   try {
     /// async promise
     const bags = await instanceProduct.get(`/products/category/womens-bags`);
@@ -119,12 +119,63 @@ const fecthWomenDressData = async () => {
     console.error("error during loading womenDressData", error);
   }
 };
-/*
-const fecthBodyData = async () => {};
 
-const fecthDecoData = async () => {};
+const fecthBodyData = async () => {
+  /// async promise
 
-const fecthCategoryData = async () => {};
-*/
+  try {
+    const skinCare = await instanceProduct.get(`/products/category/skin-care`);
+    const beauty = await instanceProduct.get(`/products/category/beauty`);
+    const fragrances = await instanceProduct.get(
+      `/products/category/fragrances`
+    );
+    const [skinCareData, beautyData, fragrancesData] = Promise.all([
+      skinCare,
+      beauty,
+      fragrances,
+    ]);
 
-export { fecthTechData, fecthProductData, fecthMenData };
+    const combinedBodyData = [
+      ...skinCareData.data.products,
+      ...beautyData.data.products,
+      ...fragrancesData.data.products,
+    ];
+    return combinedBodyData;
+  } catch (error) {
+    console.error("error during loading fecthBodyData  ", error);
+  }
+};
+
+const fecthDecoData = async () => {
+  /// async promise
+
+  try {
+    const furniture = await instanceProduct.get(`/products/category/furniture`);
+    const homeDecoration = await instanceProduct.get(
+      `/products/category/home-decoration`
+    );
+    const kitchenAccessories = await instanceProduct.get(
+      `/products/category/kitchen-accessories`
+    );
+    const [furnitureData, homeDecorationData, kitchenAccessoriesData] =
+      Promise.all([homeDecoration, kitchenAccessories, furniture]);
+
+    const combinedDecoData = [
+      ...furnitureData.data.products,
+      ...homeDecorationData.data.products,
+      ...kitchenAccessoriesData.data.products,
+    ];
+    return combinedDecoData;
+  } catch (error) {
+    console.error("error during loading fecthBodyData  ", error);
+  }
+};
+
+export {
+  fecthTechData,
+  fecthProductData,
+  fecthMenData,
+  fecthWomenData,
+  fecthBodyData,
+  fecthDecoData,
+};
