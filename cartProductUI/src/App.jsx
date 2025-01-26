@@ -1,12 +1,11 @@
-import ProductList from "./components/Product/ProductList";
-import ProductByCombinedCategory from "./components/Product/ProductByCombinedCategory";
+import { ProductDataProvider } from "./context/ProductDataContext";
+import ProductItem from "./components/Product/ProductItem";
+import ProductCard from "./components/Product/ProductCard";
 function App() {
   return (
-    <>
-      <h1>HElllo</h1>
-      <ProductList></ProductList>
-      <ProductByCombinedCategory></ProductByCombinedCategory>
-    </>
+    <ProductDataProvider>
+      <ProductItem />
+    </ProductDataProvider>
   );
 }
 

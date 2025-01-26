@@ -1,8 +1,8 @@
-import { instanceProduct } from "./api";
+import { instanceProduct } from "../api/api";
 
 //export data from API/dummyJSON
 
-const fecthProductData = async () => {
+const fetchProductData = async () => {
   try {
     const response = await instanceProduct.get(`/products`);
     return response.data;
@@ -13,7 +13,7 @@ const fecthProductData = async () => {
 
 //Category Tech combined with fetch
 
-const fecthTechData = async () => {
+const fetchTechData = async () => {
   try {
     //Async for promise 3 categories
     const accessories = await instanceProduct.get(
@@ -23,27 +23,25 @@ const fecthTechData = async () => {
       `/products/category/smartphones`
     );
     const tablets = await instanceProduct.get(`/products/category/tablets`);
-
-    const [accessoriesData, smartphonesData, tabletsData] = await Promise.all([
-      accessories,
-      smartphones,
-      tablets,
-    ]);
+    const laptops = await instanceProduct.get(`/products/category/laptops`);
+    const [accessoriesData, smartphonesData, tabletsData, laptopsData] =
+      await await Promise.all([accessories, smartphones, tablets, laptops]);
 
     const combinedTechData = [
       ...accessoriesData.data.products,
       ...smartphonesData.data.products,
       ...tabletsData.data.products,
+      ...laptopsData.data.products,
     ];
     return combinedTechData;
   } catch (error) {
-    console.error("error during loading fecthTechData", error);
+    console.error("error during loading fetchTechData", error);
   }
 };
 
 //Category womendress products combined with fetch
 
-const fecthMenData = async () => {
+const fetchMenData = async () => {
   try {
     //Async for promise 3 categories
     const shirts = await instanceProduct.get(`/products/category/mens-shirts`);
@@ -56,7 +54,7 @@ const fecthMenData = async () => {
     );
 
     // all promise
-    const [shirtData, shoesData, watchData, sportAccData] = Promise.all([
+    const [shirtData, shoesData, watchData, sportAccData] = await Promise.all([
       shirts,
       shoes,
       watches,
@@ -72,13 +70,13 @@ const fecthMenData = async () => {
 
     return combinedMenData;
   } catch (error) {
-    console.error("error during loading fecthMenData", error);
+    console.error("error during loading fetchMenData", error);
   }
 };
 
-//Category womendress products combined with fetch
+//Category womendress products combined with fetch and await with promise all to wait all promises are finished
 
-const fecthWomenData = async () => {
+const fetchWomenData = async () => {
   try {
     /// async promise
     const bags = await instanceProduct.get(`/products/category/womens-bags`);
@@ -103,7 +101,14 @@ const fecthWomenData = async () => {
       womenWatchesData,
       topsData,
       womenShoesData,
-    ] = Promise.all([bags, jewellery, dresses, womenShoes, womenWatches, tops]);
+    ] = await Promise.all([
+      bags,
+      jewellery,
+      dresses,
+      womenShoes,
+      womenWatches,
+      tops,
+    ]);
 
     const combinedWomenData = [
       ...bagsData.data.products,
@@ -120,7 +125,9 @@ const fecthWomenData = async () => {
   }
 };
 
-const fecthBodyData = async () => {
+//Category BodyData products combined with fetch and await with promise all to wait all promises are finished
+
+const fetchBodyData = async () => {
   /// async promise
 
   try {
@@ -129,7 +136,7 @@ const fecthBodyData = async () => {
     const fragrances = await instanceProduct.get(
       `/products/category/fragrances`
     );
-    const [skinCareData, beautyData, fragrancesData] = Promise.all([
+    const [skinCareData, beautyData, fragrancesData] = await Promise.all([
       skinCare,
       beauty,
       fragrances,
@@ -142,11 +149,13 @@ const fecthBodyData = async () => {
     ];
     return combinedBodyData;
   } catch (error) {
-    console.error("error during loading fecthBodyData  ", error);
+    console.error("error during loading fetchBodyData  ", error);
   }
 };
 
-const fecthDecoData = async () => {
+//Category DECO  products combined with fetch and await with promise all to wait all promises are finished
+
+const fetchDecoData = async () => {
   /// async promise
 
   try {
@@ -158,7 +167,7 @@ const fecthDecoData = async () => {
       `/products/category/kitchen-accessories`
     );
     const [furnitureData, homeDecorationData, kitchenAccessoriesData] =
-      Promise.all([homeDecoration, kitchenAccessories, furniture]);
+      await Promise.all([homeDecoration, kitchenAccessories, furniture]);
 
     const combinedDecoData = [
       ...furnitureData.data.products,
@@ -167,15 +176,15 @@ const fecthDecoData = async () => {
     ];
     return combinedDecoData;
   } catch (error) {
-    console.error("error during loading fecthBodyData  ", error);
+    console.error("error during loading fetchBodyData  ", error);
   }
 };
 
 export {
-  fecthTechData,
-  fecthProductData,
-  fecthMenData,
-  fecthWomenData,
-  fecthBodyData,
-  fecthDecoData,
+  fetchTechData,
+  fetchProductData,
+  fetchMenData,
+  fetchWomenData,
+  fetchBodyData,
+  fetchDecoData,
 };
