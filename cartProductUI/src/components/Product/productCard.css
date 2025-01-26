@@ -1,1 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  flex-direction: column;
+  display: flex;
+  height: 76vh;
+  border: solid 1px rgb(222, 222, 222);
+  padding: 5px;
+}
+.card_container {
+  width: 100%;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  gap: 4vw;
+}
+.card_title {
+  height: 4vh;
+}
+.card_component {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 93%;
+  width: 20%;
+  border: solid 1px rgb(242, 241, 241);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
+.card_component:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.card_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56%;
+  background: linear-gradient(to bottom, #fffffffa, #f6f6f6);
+  border-radius: 10px 10px 0 0;
+}
+.card_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.card_text {
+  height: 41%;
+  line-height: 1.25rem;
+  text-align: left;
+  padding: 15px;
+}
+.card_text p {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin: 0;
+}
+.card_text p {
+  font-weight: 400;
+  margin: 0;
+}
+.card_rating {
+  margin-top: 10px;
+  line-height: 1.95rem;
+  margin-bottom: 15px;
+}
+.card_rating p {
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+.card_rating h4 {
+  color: red;
+  line-height: 15px;
+  font-weight: 700;
+}
+.card_button {
+  margin-top: 10px;
+  align-items: center;
+  text-align: center;
+}
+.card_link {
+  height: 5vh;
+  text-align: center;
+  margin-bottom: 10px;
+}
