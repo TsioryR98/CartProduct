@@ -2,7 +2,7 @@ import React from "react";
 import { useProductData } from "../../context/ProductDataContext";
 
 const ProductItem = () => {
-  const { categoryProductData } = useProductData(); // Extraire la bonne donnée
+  const { categoryProductData } = useProductData(); //extract context data
 
   return (
     <div>

@@ -5,16 +5,16 @@
 .main {
   flex-direction: column;
   display: flex;
-  height: 76vh;
+  height: 80vh;
   border: solid 1px rgb(222, 222, 222);
-  padding: 5px;
+  padding: 15px;
 }
 .card_container {
   width: 100%;
-  height: 65vh;
+  height: 67vh;
   display: flex;
   justify-content: center;
-  gap: 4vw;
+  gap: 3vw;
 }
 .card_title {
   height: 4vh;
@@ -55,10 +55,16 @@
   text-align: left;
   padding: 15px;
 }
+.brand_card{
+  font-size: 0.8rem;
+}
 .card_text p {
-  font-weight: bold;
-  font-size: 0.95rem;
+  font-weight: bolder ! important; 
+  font-size: 0.95rem ; 
   margin: 0;
+  white-space: nowrap; /* one line */
+  overflow: hidden; 
+  text-overflow: ellipsis; /* "..." if the text is too long */
 }
 .card_text p {
   font-weight: 400;
