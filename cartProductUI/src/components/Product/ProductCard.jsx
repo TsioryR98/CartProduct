@@ -24,7 +24,9 @@ const ProductCard = () => {
                 </div>
                 <div className="card_text">
                   <p>{product.title}</p>
-                  <span className="brand_card">{`- ${product.brand}`}</span>
+                  <span className="brand_card">
+                    {product.brand ? `- ${product.brand}` : product.tags[1]}
+                  </span>
                   <div className="card_rating">
                     <span className="small">{`${product.reviews.length} reviews`}</span>
                     <h4>{`${product.price} €`}</h4>
