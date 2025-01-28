@@ -1,6 +1,6 @@
 import { ProductDataProvider } from "./context/ProductDataContext";
 import ProductCard from "./components/Product/ProductCard";
-import HomePage from "./components/Product/HomePage";
+import HomePage from "./components/Header/HomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
