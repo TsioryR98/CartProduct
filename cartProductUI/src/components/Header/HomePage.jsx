@@ -5,11 +5,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import InputGroup from "react-bootstrap/InputGroup";
 import { CiSearch } from "react-icons/ci";
-import "../Product/homePage.css";
+import "../Header/homePage.css";
 import { PiShoppingCart } from "react-icons/pi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { MdFavoriteBorder } from "react-icons/md";
-
 
 function HomePage() {
   return (

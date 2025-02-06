@@ -2,10 +2,15 @@ import React from "react";
 import "../Product/productCard.css";
 import Button from "react-bootstrap/Button";
 import { useProductData } from "../../context/ProductDataContext";
-
+import { useModal } from "../../context/ModalContext";
 const ProductCard = () => {
   const { categoryProductData } = useProductData(); //extract context data
+  const { productOpenModal } = useModal(); // import from use modal product openmodal to open modal
 
+  //function that handle productOPenModal with inside setSelectedProduct(product); setOpenedModal(true);
+  const handleOnClikProduct = (product) => {
+    productOpenModal(product);
+  };
   return (
     <>
       {categoryProductData.map((categoryItem) => (
@@ -13,7 +18,8 @@ const ProductCard = () => {
           <div className="card_title">
             <h5>{categoryItem.category}</h5>
           </div>
-          <div className="card_container">
+          {/*handleOnClikProduct by useModal context*/}
+          <div className="card_container" onClick={handleOnClikProduct}>
             {categoryItem.responseData.slice(0, 4).map((product, index) => (
               <div className="card_component" key={index}>
                 <div className="card_img">
@@ -32,7 +38,11 @@ const ProductCard = () => {
                     <h4>{`${product.price} €`}</h4>
                   </div>
                   <div className="card_button">
-                    <Button size="sm" variant="outline-info">
+                    <Button
+                      size="sm"
+                      variant="outline-info"
+                      onClick={handleOnClikProduct}
+                    >
                       Add to cart
                     </Button>
                   </div>

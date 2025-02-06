@@ -23,6 +23,7 @@ const ProductDataProvider = ({ children }) => {
     { category: "Body Care", responseData: [] },
     { category: "Decoration", responseData: [] },
   ]);
+
   const getDataProduct = async () => {
     try {
       // get all dataproduct from fetch functions
