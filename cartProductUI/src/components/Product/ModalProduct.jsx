@@ -4,13 +4,9 @@ import Modal from "react-bootstrap/Modal";
 import { useModal } from "../../context/ModalContext";
 
 const ModalProduct = () => {
-  const { closeModal, openedModal, productOpenModal } = useModal();
+  const { closeModal, openedModal,selectedProduct } = useModal();
   return (
     <>
-      <Button variant="primary" onClick={productOpenModal}>
-        Launch productOpenModal
-      </Button>
-
       <Modal
         show={openedModal}
         onHide={closeModal}
@@ -20,10 +16,12 @@ const ModalProduct = () => {
         <Modal.Header closeButton>
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
+        {/*Verify if selectedproduct is not null with && */}
+        {selectedProduct && (
         <Modal.Body>
-          I will not close if you click outside me. Do not even try to press
-          escape key.
+         <p>{selectedProduct.title}</p>
         </Modal.Body>
+      )}
         <Modal.Footer>
           <Button variant="secondary" onClick={closeModal}>
             Close
