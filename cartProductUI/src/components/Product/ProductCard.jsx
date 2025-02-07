@@ -20,7 +20,7 @@ const ProductCard = () => {
           </div>
           {/*handleOnClikProduct by useModal context*/}
           <div className="card_container" >
-            {categoryItem.responseData.slice(0, 4).map((product, index) => (
+            {categoryItem.responseData.slice(16, 20).map((product, index) => (
               <div className="card_component" key={index} onClick={() => handleOnClikProduct(product)}>
                 <div className="card_img">
                   <img

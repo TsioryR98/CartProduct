@@ -5,6 +5,10 @@ import { useModal } from "../../context/ModalContext";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Carousel from 'react-bootstrap/Carousel';
+import "../Product/productCard.css";
+
+
 
 const ModalProduct = () => {
   const { closeModal, openedModal, selectedProduct } = useModal();
@@ -27,8 +31,20 @@ const ModalProduct = () => {
               <Row>
                 {/* Left Side */}
                 <Col md={6} className="border border-dark">
-                  <h4>Left Side</h4>
-                  <p>Contenu de gauche</p>
+                  <Carousel fade
+                    controls={selectedProduct.images.length > 1}
+                    indicators={selectedProduct.images.length > 1}
+                  >
+                    {selectedProduct.images.map((image, index) => (
+                      <Carousel.Item key={index}>
+                        <img
+                          className=" modal_carousel_img"
+                          src={image}
+                          alt={`${selectedProduct.title + index} `}
+                        />
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
                 </Col>
 
                 {/* Right Side */}
@@ -51,3 +67,6 @@ const ModalProduct = () => {
 };
 
 export default ModalProduct;
+
+
+{/* */ }
